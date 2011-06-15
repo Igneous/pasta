@@ -51,7 +51,7 @@ end
 
 get '/download/:id' do |id|
   @paste = Paste.get(Integer(id))
-  if @paste.title != "Untitled"
+  if @paste.title != "Unknown"
     @fname = @paste.title
   else
     @fname = 'paste' + id + '.txt'
