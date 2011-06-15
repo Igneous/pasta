@@ -3,12 +3,12 @@
 This version is forked from [miloshadzic][M]'s pastaa.
 
 Changes:
-*  The usage of pygments@appspot has been replaced with native ultraviolet highlighting (purely for flexability reasons, mainly line numbers)
-*  Added toggle-able line numbers
-*  Added the ability to "View Raw" pastes
-*  Added the ability to download pastes
-*  Wrote a command line paste client in bash
-*  Ripped out inconsolata font, just using monospace now.
+* The usage of pygments@appspot has been replaced with native ultraviolet highlighting (purely for flexability reasons, mainly line numbers)
+* Added toggle-able line numbers
+* Added the ability to "View Raw" pastes
+* Added the ability to download pastes
+* Wrote a command line paste client in bash
+* Ripped out inconsolata font, just using monospace now.
 
 Note:
 This is literally my first time hacking on ruby code (as well as haml)...
