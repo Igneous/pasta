@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# URL that pasta is deployed at
+deployment="http://pastaa.heroku.com"
+
+# Defaults
+# Uncomment to have a persistant author.
+# pasteauthor="Igneous"
+
+# Language is required by pasta.
+# we'll assume we're sending plaintext unless -l is specified
+pastelang="plain_text"
+
+usage() {
+	echo "
+	pastapaste v0.1a by <bjw@onwav.com>
+	Usage: pastapaste [options] -f file.txt
+
+	Available Options:
+
+		-h 	display this message
+
+		-a	author
+
+		-t	post title
+
+		-l	language (e.g. perl, lua, ruby, bash)
+
+		-f	file to paste
+	"
+}
+
+while getopts "ha:t:l:f:" OPTION;do
+     case $OPTION in
+         h)
+             usage
+             exit 1
+             ;;
+         a)
+             pasteauthor="$OPTARG"
+             ;;
+         t)
+             pastetitle="$OPTARG"
+             ;;
+         l)
+             pastelang="$OPTARG"
+             ;;
+         f)
+             pastefile="$OPTARG"
+             ;;
+         ?)
+             usage
+             exit 1
+             ;;
+     esac
+done
+
+if [[ -z "$pastefile" ]];then
+	echo -e "\e[1;31m\nError: Please specify a file (-f filename)";tput sgr0;usage
+else
+	curl -d "title=$pastetitle&author=$pasteauthor&language=$pastelang" --data-urlencode "body@$pastefile" $deployment
+	#this is nasty, scenarios could occur where this isn't always accurate.. I should have pasta hand the user back the url to their paste
+	pasteurl=$(wget -O- $deployment 2>/dev/null | grep -m 1 "<a class" | sed -e "s/^.*href='\///" -e "s/'.*//")
+	echo $deployment/$pasteurl
+fi

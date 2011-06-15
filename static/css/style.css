@@ -4,9 +4,11 @@ html {font-family:Ubuntu, sans-serif; font-size:16px; line-height:24px;}
 #title {font-size:1em; font-weight:bold; padding: 1em 1em 0 1em;}
 
 pre {
-  font-family:Inconsolata, monospace;
-  padding:1em;
+  font-family: monospace;
+  font-size: 9pt;
+  padding:1em; 
   margin:0 auto;
+  line-height: 100%;
 }
 
 h1 {
@@ -31,6 +33,37 @@ h2 {
 ul {
   list-style:none;
   margin:0;padding:0;
+}
+
+.downloadhere {
+  border: solid #ddd 1px;
+  color: #999;
+  padding: 3px;
+  font-size: 9pt;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+.downloadhere A:link, .downloadhere A:visited, .downloadhere A:active {
+  color: #999;
+}
+.downloadhere A:hover {
+  color: #a05;
+}
+
+.linkbox {
+  font-size: 8pt;
+  position: absolute;
+  top: 20px;
+  left: 42%;
+}
+.linkbox A:link, .linkbox A:visited, .linkbox A:active {
+  color: #000000;
+  padding: 0px 2px 0px 2px;
+}
+.linkbox A:hover {
+  color: #a90050;
+  padding: 0px 2px 0px 2px;
 }
 
 a.name {
@@ -61,7 +94,7 @@ form {
 text-align:center;
 }
 textarea{
-font-family:Inconsolata, monospace;
+font-family: monospace;
 }
 
 input.text,textarea{margin:0.5em; border:1px #eee solid;min-height:1.5em;}

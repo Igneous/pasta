@@ -14,6 +14,6 @@
       .linkbox 
         %a(href="/raw/#{@paste.id}" title="View Raw") View Raw
         %a(href="/download/#{@paste.id}" title="Download Paste") Download Paste
-        %a(href="/lnos/#{@paste.id}" title="Line Numbers") Display Line Numbers 
+        %a(href="/#{@paste.id}" title="Line Numbers") Hide Line Numbers
       :preserve
-        #{@paste.body}
+        #{@paste.bodywlines}
