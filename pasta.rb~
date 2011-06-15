@@ -59,7 +59,7 @@ get '/download/:id' do |id|
 
   # There's probably a better way to do this..
   File.open(File.dirname(__FILE__) + "/static/rraw/#{id}", 'w') {|f| f.write(@paste.rawbody) }
-  send_file File.dirname(__FILE__) + "/static/rraw/#{id}", :type => :txt, :filename => @fname
+  send_file File.dirname(__FILE__) + "static/rraw/#{id}", :type => :txt, :filename => @fname
 end
 
 post '/' do
